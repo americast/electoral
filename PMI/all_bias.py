@@ -70,15 +70,21 @@ for i, each_link in tqdm(enumerate(all_links)):
     assert each_link == all_text[str(i)]["article"]
     left_count, right_count = 0, 0
     for l in left_list:
+        # if l in text_here:
+        #     left_count += 1
         left_count += text_here.count(l)
     for r in right_list:
+        # if r in text_here:
+        #     right_count += 1
         right_count += text_here.count(r)
+    # left_count /= len(left_list)
+    # right_count /= len(right_list)
     if left_count < 0.1 and right_count < 0.1:
         continue
     elif left_count > right_count:
-        final_dict["left"] += left_count
-    else:
-        final_dict["right"] += right_count
+        final_dict["left"] += time
+    elif left_count < right_count:
+        final_dict["right"] += time
 
 df = pd.read_csv("election_results.csv")
 
@@ -98,7 +104,6 @@ for i, row in tqdm(df.iterrows()):
         left_count += text_here.count(l)
     for r in right_list:
         right_count += text_here.count(r)
-    final_bias[e_type] = -left_count + (final_dict["left"]/final_dict["right"]) * right_count
-pu.db
+    final_bias[e_type] = (-left_count + (final_dict["left"]/final_dict["right"]) * right_count) / (left_count + (final_dict["left"]/final_dict["right"]) * right_count)
 
 
