@@ -5,3 +5,10 @@ data_small/*
 *.out
 *.json
 *.csv
+*.txt
+/election_results/app_scrapper.log
+.idea
+./AAAI-21_Programs_paper_297.pdf
+./Supplemental_File_297.zip
+./Supplemental_File_297
+./Supplemental_File_297/

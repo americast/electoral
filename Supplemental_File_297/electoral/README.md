@@ -50,7 +50,7 @@ cd prediction
 python3 modelling.py && python3 NMF.py
 python3 counter.py && python3 counter_bloc.py && python3 counter_chamberlin.py
 python3 bloc.py && python3 chamberlin.py && python3 k_borda_count.py && python3 sntv.py
-python3 counter_monroe.py && python3 chamberlin.py
+python3 counter_monroe.py && python3 chamberlin.py # chamberlin.py also runs monroe election method when succeeded by counter_monroe.py 
 python2 stv.py 
 cd ..
 ```
